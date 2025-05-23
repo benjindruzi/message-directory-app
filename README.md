@@ -1,50 +1,73 @@
-# Welcome to your Expo app 👋
+# Message Directory App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A lightweight React Native application built with Expo that organizes and displays prewritten messages in categorized “directories.”
 
-## Get started
+## What It Does
 
-1. Install dependencies
+- **Home Screen**: Shows a grid of six message categories (You, Home, Love, Family, Friends, School), each represented by an icon and label.
+- **Messages Screen**: Tapping a category navigates to a list of hard-coded message templates for that category.
+- **Navigation**: Uses React Navigation’s stack navigator to move between screens, with the header title updating dynamically based on the selected category.
+- **Assets**: Icons are stored as local images.
 
-   ```bash
-   npm install
-   ```
+## Project Structure
 
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```
+message-directory-app/
+├── App.tsx                # Entry point & navigation setup
+├── app.json               # Expo configuration
+├── package.json           # npm scripts & dependencies
+├── tsconfig.json          # TypeScript configuration (extends expo/tsconfig.base)
+├── .gitignore
+├── README.md              # (this file)
+├── assets/
+│   └── images/            # Category icons
+│       ├── you.png
+│       ├── home.png
+│       ├── love.png
+│       ├── family.png
+│       ├── friends.png
+│       └── school.png
+└── screens/
+    ├── HomeScreen.tsx     # Grid layout of category cards
+    └── MessagesScreen.tsx # Scrollable list of messages
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Getting Started
 
-## Learn more
+### Prerequisites
 
-To learn more about developing your project with Expo, look at the following resources:
+- **Node.js** LTS (version 16.x or later)
+- **npm** or **yarn**
+- **Expo CLI** (no global install required; use `npx`)
+- **Physical device** with Expo Go installed, or iOS Simulator / Android Emulator
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### 1. Clone & Install
 
-## Join the community
+```bash
+git clone https://github.com/benjindruzi/message-directory-app.git
+cd message-directory-app
+npm install
+```  
 
-Join our community of developers creating universal apps.
+### 2. Start the Development Server
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npx expo start
+```  
+By default, Expo will run in **LAN** mode. If you are on a restrictive network, you can switch to **Tunnel** mode:
+
+```bash
+npx expo start --tunnel
+```
+
+### 3. Run on Device or Simulator
+
+- **Physical Device**: Open **Expo Go** and scan the QR code shown in the terminal or DevTools.
+- **iOS Simulator**:  
+  ```bash
+  npx expo run:ios
+  ```
+- **Android Emulator**:  
+  ```bash
+  npx expo run:android
+  ```
